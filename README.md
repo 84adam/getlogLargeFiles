@@ -1,6 +1,6 @@
 # getlogLargeFiles
 
-Locates, lists, and logs all files over 100MB in size on your system.
+### Locates, lists, and logs all files over 100MB in size on your system.
 
 Logs results to `$HOME/LARGEFILES-$(date -u +%b-%d-%Y).log` (one log per day/UTC).
 
@@ -10,5 +10,9 @@ Then run from current directory:
 
 - with sudo: `$ sudo ./getlogLargeFiles.sh` 
 - or as root: `# ./getlogLargeFiles.sh`
+
+To list larger size files only, simply edit the "-size" parameter, for example to search for 500MB+ files, do:
+
+`find / -xdev -type f -size +500M -exec ls -lah {} \; | tee $LOGFILE`
 
 Enjoy!
