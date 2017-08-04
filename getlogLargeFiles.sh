@@ -36,3 +36,5 @@ echo " "
 echo "Have fun!"
 
 # github repo: https://github.com/84adam/getlogLargeFiles/
+# download .git: $ wget https://github.com/84adam/getlogLargeFiles.git
+# download .zip:  $ wget https://github.com/84adam/getlogLargeFiles/archive/master.zip
