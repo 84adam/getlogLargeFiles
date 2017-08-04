@@ -28,7 +28,7 @@ sleep .5
 
 # List all files greater than 100M in size; print results to terminal and log to $LOGFILE using `tee`
 
-find / -xdev -type f -size +100M -exec ls -lah {} \; | sort -k 3,3 -k 5rn | tee $LOGFILE
+find / -xdev -type f -size +100M -exec ls -la {} \; | sort -k 3,3 -k 5rn | tee $LOGFILE
 
 echo " "
 echo "##################################################"
