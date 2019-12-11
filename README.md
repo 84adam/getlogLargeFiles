@@ -13,6 +13,6 @@ Then run from current directory:
 
 To list larger size files only, simply edit the "-size" parameter, for example to search for 500MB+ files, do:
 
-`find / -xdev -type f -size +500M -exec ls -la {} \; | sort -k 3,3 -k 5rn | tee $LOGFILE`
+`find / -xdev -type f -size +500M -exec ls -lah {} \; | sort -k 3,3 -k 5rn | tee $LOGFILE`
 
 Enjoy!
