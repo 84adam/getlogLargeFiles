@@ -40,7 +40,7 @@ sleep .5
 # print results to terminal 
 # log to $LOGFILE using `tee`
 
-find / -xdev -type f -size +100M -exec ls -lah {} \; | sort -k 3,3 -k 5rn | cut -d " " -f 2- | tee $LOGFILE
+find / -xdev -type f -size +100M -exec ls -lah {} \; | sort -k 3,3 -k 5rn | awk '{print $5,$3,$4,$9}' | tee $LOGFILE
 
 echo " "
 echo "##################################################"
