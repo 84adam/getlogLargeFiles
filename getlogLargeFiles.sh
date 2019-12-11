@@ -7,6 +7,13 @@
 # This script is intended to be used once a day, for example via a cron job.
 # Running this more than once a day will overwrite, instead of appending to, the $LOGFILE
 
+# Exit if not root/sudo user
+if [ ! "`whoami`" = "root" ]
+then
+    echo "This script must be run as root. Exiting..."
+    exit 1
+fi
+
 # Location to store the logs, appending today's 'Month-day-Year'
 
 LOGFILE="$HOME/LARGEFILES-$(date -u +%b-%d-%Y).log"
@@ -28,7 +35,7 @@ sleep .5
 
 # List all files greater than 100M in size; print results to terminal and log to $LOGFILE using `tee`
 
-find / -xdev -type f -size +100M -exec ls -la {} \; | sort -k 3,3 -k 5rn | tee $LOGFILE
+find / -xdev -type f -size +100M -exec ls -lah {} \; | sort -k 3,3 -k 5rn | tee $LOGFILE
 
 echo " "
 echo "##################################################"
