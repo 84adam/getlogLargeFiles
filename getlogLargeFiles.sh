@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Author: Adam Anderson
+# Code Repo: https://github.com/84adam/getlogLargeFiles/
+
 # Use this script to locate, list, and log your largest files
 # Modify 'size' parameter as needed, i.e. `-size +{###(M/G)}`, e.g. "-size +1G"
 
@@ -33,15 +36,13 @@ echo " "
 
 sleep .5
 
-# List all files greater than 100M in size; print results to terminal and log to $LOGFILE using `tee`
+# List all files greater than 100M in size; 
+# print results to terminal 
+# log to $LOGFILE using `tee`
 
-find / -xdev -type f -size +100M -exec ls -lah {} \; | sort -k 3,3 -k 5rn | tee $LOGFILE
+find / -xdev -type f -size +100M -exec ls -lah {} \; | sort -k 3,3 -k 5rn | cut -d " " -f 2- | tee $LOGFILE
 
 echo " "
 echo "##################################################"
 echo " "
 echo "Have fun!"
-
-# github repo: https://github.com/84adam/getlogLargeFiles/
-# download .git: $ wget https://github.com/84adam/getlogLargeFiles.git
-# download .zip:  $ wget https://github.com/84adam/getlogLargeFiles/archive/master.zip
